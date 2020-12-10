@@ -1,32 +1,51 @@
-<h2></h2>
 
 
-<h2>Details on  <%= @flat.name %></h2>
+<div class="map" style="background-image: url('<%= @flat.image %>')"></div>
+<div class="container">
+
 <br>
+
+<div class="content">
+  <div class="row">
+
+    <div class="col-lg-8 col-md-12">
+      <div class="flat-show-card">
+        <h1><%= @flat.name %></h1>
+        <p><%= @flat.address %></p>
+      </div>
+
+
+      <div class="flat-show-card">
+      <h2>A bit more about this flat...</h2>
+      <p><%= @flat.description %></p>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-12">
+      <div class="flat-show-card">
+        <h4>Book the flat</h4>
+          <form action="" class="booking-form">
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">From:</span>
+              <input type="text" class="form-control" placeholder="12/10/2017" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mt-2">
+              <span class="input-group-addon" id="basic-addon1">To:</span>
+              <input type="text" class="form-control" placeholder="18/10/2017" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <input type="submit" value="Book" class="btn btn-success mt-2" style="width: 100%">
+          </form>
+      </div>
+      <div class="flat-show-card">
+      <h4>Details</h4>
+      <div class="flex ">
+        <i class="fas fa-user-friends"></i> <%= @flat.number_of_guests %>
+        <%= @flat.price_per_night %> <span>€</span>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <%= link_to  "Back to the list", flats_path %>
-<br>
-<br>
-<br>
-<table class="table">
-   <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>description</th>
-    <th>Price per night </th>
-    <th>Number of guests</th>
-  </tr>
-  <tr>
-    <td> <%= @flat.name %></td>
-    <td> <%= @flat.address %> </td>
-    <td> <%= @flat.description %></td>
-    <td> <%= @flat.price_per_night %>€</td>
-    <td><%= @flat.number_of_guests %></td>
-    <%= link_to  "Edit the flat", edit_flat_path(@flat) %>
-  </tr>
-</table>
-
-
-
-
-<%= link_to  "Back to the list", flats_path %>
+</div>

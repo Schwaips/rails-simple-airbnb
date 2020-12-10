@@ -13,7 +13,7 @@ puts "---starting seeds----"
 price = [10, 30, 50, 150].sample
 guest = [2, 3, 4, 5, 10].sample
 
-a = Flat.new(name: Faker::Space.star , address: Faker::Address.full_address, description: Faker::ChuckNorris.fact, price_per_night: price, number_of_guests: guest )
+a = Flat.new(name: Faker::Space.star , address: Faker::Address.full_address, description: Faker::ChuckNorris.fact, price_per_night: price, number_of_guests: guest, image:'https://source.unsplash.com/1600x800/?house' )
 puts "inserting #{a.name}"
 a.save!
 

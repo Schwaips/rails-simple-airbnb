@@ -1,25 +1,34 @@
+
+<div class="container">
 <h1>All flats</h1>
 
-<%= link_to  "Create a new flat", new_flat_path %>
 
-<table class="table">
-   <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Description</th>
-    <th>Price per night</th>
-    <th>Number of guests</th>
-  </tr>
-    <% @flats.each do |flat| %>
-  <tr>
-    <td><%= link_to flat.name, flat_path(flat) %></td>
-    <td> <%=flat.address  %> </td>
-    <td> <%= flat.description %> </td>
-    <td> <%= flat.price_per_night %> €</td>
-    <td><%= flat.number_of_guests %></td>
-    <td><%= link_to "Voir", flat_path(flat)  %></td>
-    <td><%= link_to "Delete", flat_path(flat), method: :delete, data:{ confirm: "Delete the flat ?" }  %></td>
-    <td><%= link_to "Edit", edit_flat_path(flat)  %></td>
-  </tr>
-  <% end %>
-</table>
+
+<div class="cards">
+      <%  @flats.each do |flat|%>
+        <div class="card flat-card" style="width: 18rem;">
+          <img class="card-img-top" alt="Card image cap" src='<%= flat.image %>'>
+            <div class="card-body">
+              <h5 class="card-title"><%= flat.name  %></h5>
+              <p class="card-text"><%= flat.address.truncate(30) %></p>
+                <div class="flat-figure">
+                  <div class="guests">
+                    <i class="fas fa-user-friends"></i> <%= flat.number_of_guests %>
+                  </div>
+                  <div class="price">
+                    <%= flat.price_per_night %> <span>€</span>
+                  </div>
+                </div>
+                <div class="card-link">
+                  <a href="flats/<%= flat.id %>" class="info-link">More info</a>
+                  <a href="flats/<%= flat.id %>/edit" class="edit-link text-warning">Edit</a>
+                  <%= link_to "Delete", flat_path(flat),class: 'text-danger', method: :delete, data:{ confirm: "Delete the restaurant and the reviews" }  %>
+                </div>
+            </div>
+        </div>
+      <% end %>
+</div>
+
+
+
+
