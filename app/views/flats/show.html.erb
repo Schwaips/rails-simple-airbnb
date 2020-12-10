@@ -1,0 +1,32 @@
+<h2></h2>
+
+
+<h2>Details on  <%= @flat.name %></h2>
+<br>
+
+<%= link_to  "Back to the list", flats_path %>
+<br>
+<br>
+<br>
+<table class="table">
+   <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>description</th>
+    <th>Price per night </th>
+    <th>Number of guests</th>
+  </tr>
+  <tr>
+    <td> <%= @flat.name %></td>
+    <td> <%= @flat.address %> </td>
+    <td> <%= @flat.description %></td>
+    <td> <%= @flat.price_per_night %>€</td>
+    <td><%= @flat.number_of_guests %></td>
+    <%= link_to  "Edit the flat", edit_flat_path(@flat) %>
+  </tr>
+</table>
+
+
+
+
+<%= link_to  "Back to the list", flats_path %>
