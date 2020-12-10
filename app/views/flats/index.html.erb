@@ -2,33 +2,32 @@
 <div class="container">
 <h1>All flats</h1>
 
-
-
-<div class="cards">
-      <%  @flats.each do |flat|%>
-        <div class="card flat-card" style="width: 18rem;">
-          <img class="card-img-top" alt="Card image cap" src='<%= flat.image %>'>
-            <div class="card-body">
-              <h5 class="card-title"><%= flat.name  %></h5>
-              <p class="card-text"><%= flat.address.truncate(30) %></p>
-                <div class="flat-figure">
-                  <div class="guests">
-                    <i class="fas fa-user-friends"></i> <%= flat.number_of_guests %>
-                  </div>
-                  <div class="price">
-                    <%= flat.price_per_night %> <span>€</span>
-                  </div>
-                </div>
-                <div class="card-link">
-                  <a href="flats/<%= flat.id %>" class="info-link">More info</a>
-                  <a href="flats/<%= flat.id %>/edit" class="edit-link text-warning">Edit</a>
-                  <%= link_to "Delete", flat_path(flat),class: 'text-danger', method: :delete, data:{ confirm: "Delete the restaurant and the reviews" }  %>
+<div class="row">
+  <%  @flats.each do |flat|%>
+    <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card flat-card" style="width: 18rem;">
+              <img class="card-img-top" alt="Card image cap" src='<%= flat.image %>'>
+                <div class="card-body">
+                  <h5 class="card-title"><%= flat.name  %></h5>
+                  <p class="card-text"><%= flat.address.truncate(30) %></p>
+                    <div class="flat-figure">
+                      <div class="guests">
+                        <i class="fas fa-user-friends"></i> <%= flat.number_of_guests %>
+                      </div>
+                      <div class="price">
+                        <%= flat.price_per_night %> <span>€</span>
+                      </div>
+                    </div>
+                    <div class="card-link">
+                      <a href="flats/<%= flat.id %>" class="info-link">More info</a>
+                      <a href="flats/<%= flat.id %>/edit" class="edit-link text-warning">Edit</a>
+                      <%= link_to "Delete", flat_path(flat),class: 'text-danger', method: :delete, data:{ confirm: "Delete the restaurant and the reviews" }  %>
+                    </div>
                 </div>
             </div>
-        </div>
-      <% end %>
+    </div>
+     <% end %>
 </div>
-
 
 
 
